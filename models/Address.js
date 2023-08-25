@@ -8,14 +8,16 @@ const Address = sequelize.define('Address', {
         primaryKey: true
     },
     address: {
-        type: DataTypes.STRING
-    },
-    postal_code: {
         type: DataTypes.STRING,
         allowNull: false
     },
+    postal_code: {
+        type: DataTypes.STRING,
+        allowNull: true
+    },
     district: {
-        type: DataTypes.STRING
+        type: DataTypes.STRING,
+        allowNull: false
     }
 }, { tableName: 'address',timestamps: false});
 

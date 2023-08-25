@@ -12,7 +12,8 @@ const Payment = sequelize.define('Payment', {
         allowNull: false 
     },
     staff_id:{
-        type: DataTypes.INTEGER
+        type: DataTypes.INTEGER,
+        allowNull: false
     },
 }, {tableName: 'payment',timestamps: false});
 
