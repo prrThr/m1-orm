@@ -7,4 +7,5 @@ const functions = require('./utils/generalFunctions');
 
 // ---------------------------------------------- //
 //functions.showCustomers();
-functions.mostrarEndereco();
+functions.showAddresses();
+//functions.showPayments();

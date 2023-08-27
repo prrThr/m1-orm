@@ -6,16 +6,23 @@ const Address = require('../../models/Address');
 
 // ------------------------------------------------------------------------//
 
-async function showCustomers(){
-    const customers = await Customer.findAll();
-    customers.forEach(customer => {
-        console.log(`ID: ${customer.customer_id} AddressID: ${customer.address_id} Name: ${customer.first_name}`);
-    })
+async function showPayments(){
+    const payments = await Payment.findAll();
+    for (let payment of payments) {
+        try {
+            let selectedCustomer = await Customer.findByPk(payment.customer_id, { logging: false });
+            let customerPayment = await selectedCustomer.getDataValue('first_name');
+            console.log(`ID: ${payment.payment_id} | Customer: ${customerPayment}`)
+        } catch (err) {
+            console.log("Error log: ", err);
+        }
+    }
+
 }
 
 // ------------------------------------------------------------------------//
 
-async function mostrarEndereco(){
+async function showAddresses(){
     let selectedAddress = await Address.findAll();
     selectedAddress.forEach(address => {
         console.log("Id:", address.address_id, "|Endereço:", address.address, "|Distrito:", address.district, "|Id Cidade:", address.city_id, "|Código postal:",
@@ -33,7 +40,7 @@ function alignText(text, width) {
     return text + spaces;
   }
   
-  async function mostrarEnderecoAlinhado(){
+  async function showAddressesLinedUp(){
     let selectedAddress = await Address.findAll();
     selectedAddress.forEach(address => {
         const formattedId = alignText(address.address_id.toString(), 4);
@@ -49,8 +56,28 @@ function alignText(text, width) {
 
 // ------------------------------------------------------------------------//
 
+
+async function showCustomers() {
+    const customers = await Customer.findAll();
+    
+    for (let customer of customers) {
+        try {
+            let selectedCustomer = await Address.findByPk(customer.address_id, { logging: false });
+            let customerAddress = await selectedCustomer.getDataValue('address');
+            console.log(`ID: ${customer.customer_id} ${customerAddress}`); //POR QUE ESTÁ DUPLICANDO O RESULTADO???
+            //console.log(`ID: ${customer.customer_id} | Name: ${alignText(customer.first_name, 10)} | AddressID: ${customer.address_id} | Endereço: ${customerAddress}`);
+        } catch (error) {
+            console.log("Error log: ", error);
+        }
+    }
+}
+
+
+// ------------------------------------------------------------------------//
+
 module.exports = {
+    showAddresses,
+    showAddressesLinedUp,
     showCustomers,
-    mostrarEndereco,
-    mostrarEnderecoAlinhado
+    showPayments
 };
