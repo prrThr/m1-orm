@@ -3,6 +3,7 @@
 * npm install --save sequelize
 * npm install --save mysql2
 * npm i dotenv
+* Alterar o arquivo *.env.example* conforme suas informações no banco de dados e renomear o arquivo para *.env*
 
 
 ### Enunciado
