@@ -64,8 +64,7 @@ async function showCustomers() {
         try {
             let selectedCustomer = await Address.findByPk(customer.address_id, { logging: false });
             let customerAddress = await selectedCustomer.getDataValue('address');
-            console.log(`ID: ${customer.customer_id} ${customerAddress}`); //POR QUE ESTÁ DUPLICANDO O RESULTADO???
-            //console.log(`ID: ${customer.customer_id} | Name: ${alignText(customer.first_name, 10)} | AddressID: ${customer.address_id} | Endereço: ${customerAddress}`);
+            console.log(`ID: ${customer.customer_id} | Name: ${alignText(customer.first_name, 10)} | AddressID: ${customer.address_id} | Endereço: ${customerAddress}`);
         } catch (error) {
             console.log("Error log: ", error);
         }

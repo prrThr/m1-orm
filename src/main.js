@@ -6,6 +6,7 @@ const Address = require('../models/Address');
 const functions = require('./utils/generalFunctions');
 
 // ---------------------------------------------- //
+
 //functions.showCustomers();
-functions.showAddresses();
+//functions.showAddresses();
 //functions.showPayments();
