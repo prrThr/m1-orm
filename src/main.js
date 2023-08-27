@@ -1,5 +1,5 @@
 const prompt = require('prompt-sync')({ sigint: true });
-const functions = require('./utils/generalFunctions');
+const list = require('./utils/listFunctions');
 
 // ---------------------------------------------- //
 
@@ -22,7 +22,7 @@ async function main() {
         switch (option) {
             case 1:
                 try {
-                    await functions.showCustomers();    
+                    await list.Customers();    
                 } catch (error) {
                     console.log("Error log: ", error);
                 }
@@ -32,7 +32,7 @@ async function main() {
     
             case 2:
                 try {
-                    functions.showAddresses();   
+                    await list.Addresses();
                 } catch (error) {
                     
                 }
@@ -42,7 +42,7 @@ async function main() {
             
             case 3:
                 try {
-                    await functions.showPayments();    
+                    await list.Payments();
                 } catch (error) {
                     console.log("Error log: ", error);
                 }

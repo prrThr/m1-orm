@@ -4,7 +4,7 @@ const Address = require('../../models/Address');
 
 // ------------------------------------------------------------------------//
 
-async function showPayments(){
+async function Payments(){
     const payments = await Payment.findAll();
     for (let payment of payments) {
         try {
@@ -20,12 +20,17 @@ async function showPayments(){
 
 // ------------------------------------------------------------------------//
 
-async function showAddresses(){
+async function Addresses(){
     let selectedAddress = await Address.findAll();
     selectedAddress.forEach(address => {
-        console.log("Id:", address.address_id, "|Endereço:", address.address, "|Distrito:", address.district, "|Id Cidade:", address.city_id, "|Código postal:",
-        address.postal_code, "|Telefone:", address.phone);
+        console.log(`ID: ${address.address_id} | Código postal: ${address.postal_code} | Tel: ${address.phone} | IDCidade: ${address.city_id}
+        | ${address.address} | Distrito: ${address.district}
+        `);
     });
+
+        //console.log("ID:", address.address_id, "|Endereço:", address.address, "|Distrito:", address.district, "|Id Cidade:", address.city_id, "|Código postal:",
+        //address.postal_code, "|Telefone:", address.phone);
+    //});
 }
 
 // ------------------------------------------------------------------------//
@@ -55,14 +60,14 @@ function alignText(text, width) {
 // ------------------------------------------------------------------------//
 
 
-async function showCustomers() {
+async function Customers() {
     const customers = await Customer.findAll();
     
     for (let customer of customers) {
         try {
             let selectedCustomer = await Address.findByPk(customer.address_id, { logging: false });
             let customerAddress = await selectedCustomer.getDataValue('address');
-            console.log(`ID: ${customer.customer_id} | Name: ${alignText(customer.first_name, 10)} | AddressID: ${customer.address_id} | Endereço: ${customerAddress}`);
+            console.log(`ID: ${customer.customer_id} | ${alignText(customer.first_name, 10)} | AddressID: ${customer.address_id} | ${customerAddress}`);
         } catch (error) {
             console.log("Error log: ", error);
         }
@@ -73,8 +78,8 @@ async function showCustomers() {
 // ------------------------------------------------------------------------//
 
 module.exports = {
-    showAddresses,
+    Addresses,
     showAddressesLinedUp,
-    showCustomers,
-    showPayments
+    Customers,
+    Payments
 };
