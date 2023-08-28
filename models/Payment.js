@@ -14,11 +14,7 @@ const Payment = sequelize.define('Payment', {
     amount: {
         type: DataTypes.DOUBLE, 
         allowNull: false 
-    },
-    staff_id:{
-        type: DataTypes.INTEGER,
-        allowNull: false
-    },
+    }
 }, {tableName: 'payment',timestamps: false});
 
 module.exports = Payment;

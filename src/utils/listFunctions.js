@@ -1,22 +1,44 @@
 const Payment = require('../../models/Payment');
 const Customer = require('../../models/Customer');
 const Address = require('../../models/Address');
+const prompt = require('prompt-sync')({ sigint: true });
 
 // ------------------------------------------------------------------------//
 
 async function Payments(){
-    const payments = await Payment.findAll();
+    console.log('1 - Mostrar todos (+ 16 mil registros)');
+    console.log('2 - Mostrar os 100 primeiros');
+    console.log('3 - Mostrar os 100 últimos');
+    const input = parseInt(prompt('Selecione a opção: '));
+    let showFunc;
+
+    switch (input) {
+        case 1:
+            break;
+
+        case 2:
+            showFunc = { limit: 100 };
+            break;
+
+        case 3:
+            showFunc = {
+                order: [['payment_id', 'DESC']], // Ordena por payment_id em ordem descendente
+                limit: 100
+            };
+    }
+
+    const payments = await Payment.findAll(showFunc);
     for (let payment of payments) {
         try {
             let selectedCustomer = await Customer.findByPk(payment.customer_id, { logging: false });
             let customerPayment = await selectedCustomer.getDataValue('first_name');
-            console.log(`ID: ${payment.payment_id} | Customer: ${customerPayment}`)
+            console.log(`ID: ${payment.payment_id} | IDCliente: ${payment.customer_id} | Cliente: ${customerPayment} R$ ${payment.amount}`)
         } catch (err) {
             console.log("Error log: ", err);
         }
     }
-
 }
+
 
 // ------------------------------------------------------------------------//
 
