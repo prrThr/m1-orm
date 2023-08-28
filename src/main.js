@@ -7,16 +7,17 @@ const insert = require('./utils/insertFunctions');
 async function main() {
     let option = 0;
 
-    while (option != 7) {
+    while (option != 8) {
         option = 0;
-        while(option < 1 || option > 7) {
+        while(option < 1 || option > 8) {
             console.log('1 - Mostrar clientes:');
             console.log('2 - Mostrar endereços:');
             console.log('3 - Mostrar pagamentos:');
             console.log('4 - Inserir cliente:');
             console.log('5 - Inserir endereço:');
             console.log('6 - Inserir pagamento:');
-            console.log('7 - Sair');
+            console.log('7 - Limpar tela');
+            console.log('8 - Sair');
             option = parseInt(prompt('Selecione uma opção: '));
         }
         
@@ -87,8 +88,14 @@ async function main() {
                 break;
     
             // ------------------------------------------------------- //
-            
+
             case 7:
+                console.clear();
+                break;
+
+            // ------------------------------------------------------- //
+
+            case 8:
                 console.log('Saindo...');
                 break;
             
