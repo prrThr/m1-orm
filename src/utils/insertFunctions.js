@@ -6,8 +6,27 @@ const sequelize = require('../../config/database');
 
 // ------------------------------------------------------------------------//
 
-async function address(){
-
+async function address(address,address2,district,city_id,postal_code,phone,location) {
+    try {
+        await sequelize.authenticate();
+        console.log('Connection has been established successfully.');
+        let endereco = {
+            address: address,
+            address2: address2,
+            district: district,
+            city_id: city_id,
+            postal_code: postal_code,
+            phone: phone,
+            location:  sequelize.literal(location),
+            last_update:  sequelize.literal('CURRENT_TIMESTAMP(3)'),
+        };
+        let returnedObject = await Address.create(endereco);
+        console.log("New endereco:", endereco, returnedObject);
+        let generatedKey = returnedObject.dataValues.address_id;
+        console.log("Generated key", generatedKey);
+    } catch (error) {
+        console.error("Error log", error);
+    }
 }
 
 // ------------------------------------------------------------------------//
@@ -38,7 +57,7 @@ async function customer(store_id,first_name,last_name,email,address_id) {
 // ------------------------------------------------------------------------//
 
 async function payment(){
-    
+
 }
 
 // ------------------------------------------------------------------------//

@@ -67,6 +67,18 @@ async function main() {
             // ------------------------------------------------------- //
             
             case 5:
+                try {
+                    let address = prompt("Digite o endereço: ");
+                    let address2 = prompt("Digite o segundo endereço: ");
+                    let district = prompt("Digite o distrito:");
+                    let city_id = parseInt(prompt("Digite o ID da cidade: "));
+                    let postal_code = prompt("Digito código postal: ");
+                    let phone = prompt("Digite o telefone: ");
+                    let location = 'POINT(40.7128, -74.0060)';
+                    await insert.address(address, address2, district, city_id, postal_code, phone, location);
+                } catch (error) {
+                    console.log("Error log: ", error);
+                }
                 break;
     
             // ------------------------------------------------------- //
