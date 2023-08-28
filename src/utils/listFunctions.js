@@ -49,10 +49,6 @@ async function Addresses(){
         | ${address.address} | Distrito: ${address.district}
         `);
     });
-
-        //console.log("ID:", address.address_id, "|Endereço:", address.address, "|Distrito:", address.district, "|Id Cidade:", address.city_id, "|Código postal:",
-        //address.postal_code, "|Telefone:", address.phone);
-    //});
 }
 
 // ------------------------------------------------------------------------//

@@ -11,6 +11,10 @@ const Address = sequelize.define('Address', {
         type: DataTypes.STRING,
         allowNull: false
     },
+    address2 :{
+        type: DataTypes.STRING,
+        allowNull: true
+    },
     district: {
         type: DataTypes.STRING,
         allowNull: false
@@ -26,7 +30,19 @@ const Address = sequelize.define('Address', {
     phone: {
         type: DataTypes.STRING,
         allowNull: false
-    }
+    },
+    location: {
+      type: DataTypes.GEOMETRY,
+      allowNull: false  
+    },
 }, { tableName: 'address',timestamps: false});
+
+Address.belongsTo(City,{
+    foreignKey: 'city_id'
+});
+
+Address.belongsTo(City,{
+    foreignKey: 'location'
+});
 
 module.exports = Address;

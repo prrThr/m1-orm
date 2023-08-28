@@ -8,6 +8,10 @@ const Customer = sequelize.define('Customer', {
         autoIncrement: true,
         primaryKey: true
     },
+    store_id: {
+        type: DataTypes.TINYINT,
+        allowNull: false
+    },
     first_name: {
         type: DataTypes.STRING,
         allowNull: false
@@ -17,10 +21,23 @@ const Customer = sequelize.define('Customer', {
         allowNull: false
     },
     email: {
-        type: DataTypes.STRING
+        type: DataTypes.STRING,
+        allowNull: true
     },
     address_id: {
         type: DataTypes.INTEGER
+    },
+    active: {
+        type: DataTypes.TINYINT(1),
+        allowNull: false
+    },
+    create_date: {
+        type: DataTypes.DATE,
+        allowNull: false
+    },
+    last_update: {
+        type: DataTypes.DATE,
+        allowNull: true
     }
 }, { tableName: 'customer', timestamps: false });
 
