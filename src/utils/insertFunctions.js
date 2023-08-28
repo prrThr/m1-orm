@@ -6,6 +6,12 @@ const sequelize = require('../../config/database');
 
 // ------------------------------------------------------------------------//
 
+async function address(){
+
+}
+
+// ------------------------------------------------------------------------//
+
 async function customer(store_id,first_name,last_name,email,address_id) {
     try {
         await sequelize.authenticate();
@@ -29,6 +35,16 @@ async function customer(store_id,first_name,last_name,email,address_id) {
     }
 }
 
+// ------------------------------------------------------------------------//
+
+async function payment(){
+    
+}
+
+// ------------------------------------------------------------------------//
+
 module.exports = {
-    customer
+    address,
+    customer,
+    payment
 };

@@ -52,7 +52,16 @@ async function main() {
             // ------------------------------------------------------- //
             
             case 4:
-                await insert.customer(1,"felipe","pinho","email@email.com",12,1);
+                try {
+                    let store_id = parseInt(prompt("Digite o ID da loja: "));
+                    let first_name = prompt("Digite o primeiro nome: ");
+                    let last_name = prompt("Digite o sobrenome: ");
+                    let email = prompt("Digite seu email: ");
+                    let address_id  = parseInt(prompt("Digite o ID do endereço: "));
+                    await insert.customer(store_id, first_name, last_name, email, address_id);
+                } catch (error) {
+                    console.log("Error log: ", error);
+                }
                 break;
     
             // ------------------------------------------------------- //
