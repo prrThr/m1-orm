@@ -32,7 +32,7 @@ const Payment = sequelize.define('Payment', {
         type: DataTypes.DATE,
         allowNull: true
     }
-}, {tableName: 'payment',timestamps: false});
+}, { tableName: 'payment',timestamps: false });
 
 Payment.belongsTo(Customer, {
     foreignKey: 'customer_id'

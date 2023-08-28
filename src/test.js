@@ -1,10 +1,11 @@
 // Tests are done here
 const sequelize = require('../config/database');
-const { Op } = require('sequelize');
-const Payment = require('../models/Payment');
-const Customer = require('../models/Customer');
-const Address = require('../models/Address');
-const prompt = require('prompt-sync')({ sigint: true });
+// const { Op } = require('sequelize');
+// const Payment = require('../models/Payment');
+// const Customer = require('../models/Customer');
+// const Address = require('../models/Address');
+// const prompt = require('prompt-sync')({ sigint: true });
+
 // ------------------------------------------------------------------------------------ //
 
 async function testConnection() {
@@ -20,7 +21,5 @@ async function testConnection() {
 }
 
 testConnection();
-
-// ------------------------------------------------------------------------------------ //
 
 // ------------------------------------------------------------------------------------ //

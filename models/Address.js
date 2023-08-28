@@ -35,14 +35,6 @@ const Address = sequelize.define('Address', {
       type: DataTypes.GEOMETRY,
       allowNull: false  
     },
-}, { tableName: 'address',timestamps: false});
-
-// Address.belongsTo(City,{
-//     foreignKey: 'city_id'
-// });
-
-// Address.belongsTo(City,{
-//     foreignKey: 'location'
-// });
+}, { tableName: 'address',timestamps: false });
 
 module.exports = Address;

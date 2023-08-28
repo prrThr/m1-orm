@@ -25,7 +25,8 @@ const Customer = sequelize.define('Customer', {
         allowNull: true
     },
     address_id: {
-        type: DataTypes.INTEGER
+        type: DataTypes.INTEGER,
+        allowNull: false
     },
     active: {
         type: DataTypes.TINYINT(1),

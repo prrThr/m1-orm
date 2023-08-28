@@ -1,13 +1,17 @@
-### Requisitos:
-* npm init
-* npm install --save sequelize
-* npm install --save mysql2
-* npm i dotenv
-* npm install prompt-sync
-* Alterar o arquivo *.env.example* conforme suas informações no banco de dados e renomear o arquivo para *.env*
+## Instalações necessárias
+```bash
+npm init
+npm install --save sequelize
+npm install --save mysql2
+npm i dotenv
+npm install prompt-sync
+```
+
+## Importante
+* Altere o arquivo `.env.example` e renomeie-o para `.env`
 
 
-### Enunciado
+## Enunciado
 Dado o modelo de dados de exemplo ofertado pela ORACLE, SAKILA,
 disponível em https://dev.mysql.com/doc/sakila/en/sakila-history.html <br>
 faça o que se pede:
@@ -28,3 +32,7 @@ parâmetros de entrada pelo teclado.
 
 Dicas para entrada de dados por teclado:
 https://www.codecademy.com/article/getting-user-input-in-node-js
+
+##
+
+Link original do projeto [GitHub](https://github.com/prrThr/m1-orm).

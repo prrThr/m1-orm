@@ -36,7 +36,7 @@ async function main() {
                 try {
                     await list.Addresses();
                 } catch (error) {
-                    
+                    console.log("Error log: ", error);
                 }
                 break;
     
@@ -85,6 +85,16 @@ async function main() {
             // ------------------------------------------------------- //
             
             case 6:
+                try {
+                    let customer_id = parseInt(prompt("Insira o ID do cliente: "));
+                    let staff_id = parseInt(prompt("Insira o ID do funcionário: "));
+                    let rental_id = parseInt(prompt("Insira o ID do aluguel: "));
+                    let amount = parseFloat(prompt("Insira o valor: "));
+                    let payment_date = prompt("Insira a data de pagamento (YYYY-MM-DD HH:MM:SS): ");
+                    await insert.payment(customer_id, staff_id, rental_id, amount, payment_date);
+                } catch (error) {
+                    console.log('Error log: ', error);
+                }
                 break;
     
             // ------------------------------------------------------- //
