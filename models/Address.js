@@ -37,12 +37,12 @@ const Address = sequelize.define('Address', {
     },
 }, { tableName: 'address',timestamps: false});
 
-Address.belongsTo(City,{
-    foreignKey: 'city_id'
-});
+// Address.belongsTo(City,{
+//     foreignKey: 'city_id'
+// });
 
-Address.belongsTo(City,{
-    foreignKey: 'location'
-});
+// Address.belongsTo(City,{
+//     foreignKey: 'location'
+// });
 
 module.exports = Address;

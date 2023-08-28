@@ -1,5 +1,6 @@
 const prompt = require('prompt-sync')({ sigint: true });
 const list = require('./utils/listFunctions');
+const insert = require('./utils/insertFunctions');
 
 // ---------------------------------------------- //
 
@@ -51,6 +52,7 @@ async function main() {
             // ------------------------------------------------------- //
             
             case 4:
+                await insert.customer(1,"felipe","pinho","email@email.com",12,1);
                 break;
     
             // ------------------------------------------------------- //
